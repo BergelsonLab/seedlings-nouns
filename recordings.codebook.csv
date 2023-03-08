@@ -1,0 +1,4 @@
+column,data_type,values,description
+recording_id,string,1054 unique values,"Recording ID. Unique recording ID - a combination of media type, child ID, and month, e.g., video_41_12. See README or seedlings-nouns-codebook.csv for details."
+total_recorded_time_ms,integer,1677000...57599000,Total recorded time. Length of the audio recording file or the compiled video in ms.
+total_listened_time_ms,integer,1677000...57599000,Total listened time. Total duration of intervals in the recording that have been listened to by an annotator. Identical to the duration for video recordings and for audio recordings from months 06 and 07.
