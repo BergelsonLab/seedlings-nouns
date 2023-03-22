@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/590978338.svg)](https://zenodo.org/badge/latestdoi/590978338)
+
 # Annotated nouns from the SEEDLingS corpus
 
 The Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS) is an initiative to explain how infants' early linguistic and environmental input plays a role in their learning.
