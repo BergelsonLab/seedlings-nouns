@@ -1,10 +1,15 @@
 column,data_type,values,description
 recording_id,string,527 unique values,"Recording ID. Unique recording ID - a combination of media type, child ID, and month, e.g., video_41_12. See README or seedlings-nouns-codebook.csv for details."
-start,integer,0...54000000,Region start. Start of the region as the number of ms from the start of the audio file.
-end,integer,144230...57599000,Region end. See 'start' above.
+audio_video,categorical,"audio, video",Media type. See seedlings-nouns codebook for more information.
+subject,string,"01-04, 06-23, 25-46",Subject ID. See seedlings-nouns codebook for more information.
+month,string,06-17,Month ID. See seedlings-nouns codebook for more information.
+start,integer,0...55630680,Region start. Start of the region as the number of ms from the start of the audio file.
+end,integer,1050...57599990,Region end. See 'start' above.
 is_subregion,boolean,"False, True",Does this interval belong to a subregion?
 is_top_3_hours,boolean,"False, True",Does this interval belong to top 3 most talkative hours?
 is_top_4_hours,boolean,"False, True, <NA>",Does this interval belong to top 4 most talkative hours?
 is_surplus,boolean,"False, True",Is this interval part of surplus regions?
 position,integer,1...5,(Subregions only) Subregion position. Chronological position of the subregion. NA if not a subregion.
 subregion_rank,integer,1...4,(Subregions only) Subregion rank. Rank of the subregion from 1 (highest) to 5 (lowest). NA if not a subregion.
+duration,string,1237 unique values,Duration. Duration of the region rounded to the nearest second.
+region_id,string,3102 unique values,Primary key. Has the following format {recording_id}_{start}_{end}.

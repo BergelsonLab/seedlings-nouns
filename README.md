@@ -1,5 +1,3 @@
-[![DOI](https://zenodo.org/badge/590978338.svg)](https://zenodo.org/badge/latestdoi/590978338)
-
 # Annotated nouns from the SEEDLingS corpus
 
 The Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS) is an initiative to explain how infants' early linguistic and environmental input plays a role in their learning.
@@ -56,17 +54,19 @@ In these cases, the subregion in question would effectively get shortened and/or
 Only the regions corresponding to the annotated parts (in most cases, the whole subregion) within the subregions assigned to be annotated are listed in `regions.csv` as *subregions*.
 Let's use the following two highest-ranked subregions as an example:
 
-|recording_id|region_type|start  |end    |position|subregion_rank|
-|------------|-----------|-------|-------|--------|--------------|
-|Audio_32_14 |subregion  |6900000|9093990|1       |1             |
-|Audio_32_14 |subregion  |9910180|10500000|1       |1             |
-|Audio_32_15 |subregion  |4800000|8400000|1       |1             |
+| recording_id | ... | start | end | ... | subregion_rank | duration | ... |
+| --- |-----| --- | --- | --- |---------------------------| --- |-----|
+| audio_32_14 | ... | 6900000 | 9093990 | ... | 1 | 00:36:33                  | ... |
+| audio_32_14 | ...  | 9910180 | 10500000 | ... | 1 | 00:09:49                  | ... |
+| audio_32_15 | ... | 4800000 | 8400000 | ... | 1 | 01:00:00                  | ... |
 
-In the case of recording `Audio_32_14`, a part of the rank-1 subregion between 9093990 and 9910180 was marked to be skipped resulting in the subregion being split into two parts.
-In the case of recording `Audio_32_15`, the whole rank-1 subregion was annotated in full, and thus it got just one row.
+
+In the case of recording `Audio_32_14`, a part of the rank-1 subregion between 9093990 ms and 9910180 ms was marked to be skipped resulting in the subregion being split into two parts lasting ~36 min and ~10 min, respectively.
+In the case of recording `Audio_32_15`, the whole rank-1 subregion was annotated in full, and thus it is represented by a single row and its duration is 1 hour.
 
 The goal was to annotate 4 hours of audio per month for months 08-13, and 3 hours of audio per month for months 14-17.
 Since some subregions weren't annotated in full, coders selected additional parts of the recording to make up for the lost time: first, in the lower-ranked subregions, and, if that wasn't enough, outside the subregions.
+The `is_subregion` column in `regions.csv` indicates whether an annotated regions came from one of the subregions that were initially selected for annotation or from elsewhere in the recording.
 
 ### Top-3/top-4/surplus regions
 
@@ -82,7 +82,15 @@ top 3 and top 4 hours can additionally include those make-up regions.
 That is why `regions.csv` contains both *subregions* and *top_3*/*top_4* regions even though they are duplicates of each other most of the time.
 
 In some cases, there was more made up annotated time than 3 or 4 hours that were meant to be annotated.
-We call the annotated regions above the intended 3 or 4 total annotated hours *surplus regions*.
+We call the annotated regions above the intended 3 or 4 total annotated hours *surplus* regions.
+
+### Months 06-07
+
+For months 06 and 07, no subregions were selected at the time of annotation.
+In order to be able to select top 3 or top 4 most talkative annotated hours in a comparable way to the other months, we used the same algorithm that was used to select subregions for months 08 and later in order to retrospectively delineate them in the recordings.
+There were no *skip* regions in these months but subregions could still be shortened/split due to silences that we did identify.
+In those case, we simulated the makeup procedure described above.
+To increase consistency with the other months, listened and surplus durations in `recordings.csv` correspond to the top 4 hours (like in months 08-13) and the remaining annotated regions respectively.
 
 ## License
 

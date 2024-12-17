@@ -1,4 +1,11 @@
 column,data_type,values,description
 recording_id,string,1054 unique values,"Recording ID. Unique recording ID - a combination of media type, child ID, and month, e.g., video_41_12. See README or seedlings-nouns-codebook.csv for details."
-total_recorded_time_ms,integer,1677000...57599000,Total recorded time. Length of the audio recording file or the compiled video in ms.
-total_listened_time_ms,integer,1677000...57599000,Total listened time. Total duration of intervals in the recording that have been listened to by an annotator. Identical to the duration for video recordings and for audio recordings from months 06 and 07.
+audio_video,categorical,"audio, video",Media type. See seedlings-nouns codebook for more information.
+subject,string,"01-04, 06-23, 25-46",Subject ID. See seedlings-nouns codebook for more information.
+month,string,06-17,Month ID. See seedlings-nouns codebook for more information.
+duration_time,string,599 unique values,Recording duration. Length of the audio recording file or the compiled video file rounded to the nearest second.
+listened_time,string,578 unique values,"Listened time. The duration of top 4 (months 06-13) or top 3 (month 14-17) annotated hours rounded to the nearest second. For videos, identical to `duration_time`."
+surplus_time,string,128 unique values,"Surplus time. The time beyond top 4 (months 06-13) or top 3 (month 14-17) annotated hours that was annotated as well. For months 06-07, consists of the whole recording minus the top 4 regions and silence regions. For videos, it is zero."
+duration_ms,integer,1677000...57599990,Recording duration in ms. See `duration_time`.
+listened_ms,integer,1677000...15223830,Listened time in ms. See `listened_time`.
+surplus_ms,integer,0...43199990,Surplus time in ms. See `surplus_time`.
